@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<wallet>
+  <register0>
+    <concept>fdds</concept>
+    <date>45</date>
+    <amount>45.5</amount>
+  </register0>
+  <register1>
+    <concept>fdds</concept>
+    <date>45</date>
+    <amount>45</amount>
+  </register1>
+  <register2>
+    <concept>fdds</concept>
+    <date>45</date>
+    <amount>45</amount>
+  </register2>
+</wallet>

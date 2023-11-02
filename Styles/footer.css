@@ -1,0 +1,21 @@
+/* COLORS */
+:root{
+    --primaryColor: #ba181b;
+    --secondaryColor: #660708;
+    --terciaryColor: #e5383b;
+    --grey: #b1a7a6;
+    --black: #161a1d;
+}
+
+footer{
+    background-color: var(--primaryColor);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+footer h4{
+    color: white;
+    margin: 15px auto;
+}

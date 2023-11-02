@@ -1,0 +1,10 @@
+<table>
+    <thead>
+        <tr>
+            <td>Concept</td>
+            <td>Date</td>
+            <td>Amount</td>
+            <td>Operations</td>
+        </tr>
+    </thead>
+    <tbody>
