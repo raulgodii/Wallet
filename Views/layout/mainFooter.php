@@ -13,7 +13,7 @@
         </tr>
 </table>
 <br>
-<form action="">
+<form action="index.php?controller=Wallet&action=searchConcept" method="POST">
     <label for="search">Search concept</label>
     <input type="search" id="search" name="search">
 

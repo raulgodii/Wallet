@@ -46,5 +46,11 @@
             $this->wallet->editRegister($index, $input1Value, $input2Value, $input3Value);
             header("Location: index.php");
         }
+
+        function searchConcept(){
+            $concept = $_POST["search"];
+            $this->wallet->searchConcept($concept);
+            $this->pages->render("main/main", ['registers' => $this->wallet->searchConcept($concept)]);
+        }
     }
 ?>

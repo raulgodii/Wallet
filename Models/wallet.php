@@ -91,11 +91,10 @@
             foreach ($xml->register as $register) {
                 // Verificar si el índice actual coincide con el índice que deseas eliminar
                 if ($currentIndex == $index) {
-                    // Utilizar unset() para eliminar el nodo actual del XML
                     $register[0]->concept = $concept;
                     $register[0]->date = $date;
                     $register[0]->amount = $amount;
-                    break; // Salir del bucle después de eliminar el elemento
+                    break; // Salir del bucle después de editar el elemento
                 }
                 // Incrementar el contador del índice actual
                 $currentIndex++;
@@ -103,6 +102,35 @@
 
             // Guardar los cambios en el archivo XML
             $xml->asXML(self::xmlFilePath);
+        }
+
+        public function searchConcept($concept){
+            // Cargar el contenido XML en un objeto SimpleXMLElement
+            $xml = simplexml_load_file(self::xmlFilePath);
+            // Iterar sobre los elementos del XML
+            foreach ($xml->register as $register) {
+                if($register[0]->concept == $concept){
+                    $result = array(
+                        'register' => array(
+                            'concept' => (string)$register->concept,
+                            'date' => (string)$register->date,
+                            'amount' => (string)$register->amount
+                        )
+                    );
+                    // Devolver el resultado y salir del bucle
+                    return $result;
+                }
+            }
+
+            $result = array(
+                'register' => array(
+                    'concept' => "Concept",
+                    'date' => "Not",
+                    'amount' => "Found"
+                )
+            );
+            // Devolver el resultado y salir del bucle
+            return $result;
         }
     }
 ?>
