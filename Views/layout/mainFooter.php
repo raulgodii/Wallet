@@ -23,7 +23,14 @@
 <table class="res">
     <tr>
         <td><b>Total Registers</b></td>
-        <td><?php if(!empty($registers)) echo count($registers["register"]); else echo 0;?></td>
+        <td><?php 
+        if(!empty($registers)){
+            if(is_array($register)){
+                echo count($registers["register"]); 
+            }else echo 1;
+        }else echo 0;
+        
+        ?></td>
     </tr>
     <tr>
         <td><b>Total Balance</b></td>
@@ -31,9 +38,19 @@
         if(!empty($registers)){
             $totalBalance = 0;
             foreach ($registers["register"] as $value) {
-                $totalBalance += floatval($value['amount']);
+                if(is_array($register)){
+                    $totalBalance += floatval($value['amount']);
+                }else{
+                    if(is_numeric($registers['register']['amount'])){
+                        echo $registers['register']['amount'];
+                        break;
+                    } else{
+                        echo 0;
+                        break;
+                    }
+                }
             }
-            echo $totalBalance;
+            if(is_array($register)) echo $totalBalance;
         } else echo 0;
         ?></td>
     </tr>
