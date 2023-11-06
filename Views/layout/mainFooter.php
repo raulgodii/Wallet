@@ -55,7 +55,7 @@
         ?></td>
     </tr>
     <tr>
-        <td colspan="2"><button class="seeAll">See all registers<span></span></button></td>
+        <td colspan="2"><a href="index.php"><button class="seeAll">See all registers<span></span></button></a></td>
     </tr>
 </table>
 <br>

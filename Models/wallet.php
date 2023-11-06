@@ -107,28 +107,33 @@
         public function searchConcept($concept){
             // Cargar el contenido XML en un objeto SimpleXMLElement
             $xml = simplexml_load_file(self::xmlFilePath);
+
+            $result = array();
+
             // Iterar sobre los elementos del XML
             foreach ($xml->register as $register) {
                 if($register[0]->concept == $concept){
-                    $result = array(
-                        'register' => array(
-                            'concept' => (string)$register->concept,
-                            'date' => (string)$register->date,
-                            'amount' => (string)$register->amount
-                        )
+                    
+                    $registroArray = array(
+                        'concept' => (string)$register->concept,
+                        'date' => (string)$register->date,
+                        'amount' => (string)$register->amount
                     );
                     // Devolver el resultado y salir del bucle
-                    return $result;
+                    $result['register'][] = $registroArray;
                 }
             }
 
-            $result = array(
-                'register' => array(
-                    'concept' => "Concept",
-                    'date' => "Not",
-                    'amount' => "Found"
-                )
-            );
+            if (empty($result['register'])) {
+                $result = array(
+                    'register' => array(
+                        'concept' => "Concept",
+                        'date' => "Not",
+                        'amount' => "Found"
+                    )
+                );
+            }
+            
             // Devolver el resultado y salir del bucle
             return $result;
         }

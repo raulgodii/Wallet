@@ -20,4 +20,9 @@
     <date>v</date>
     <amount>v</amount>
   </register>
+  <register>
+    <concept>d</concept>
+    <date>d</date>
+    <amount>d</amount>
+  </register>
 </wallet>
