@@ -27,6 +27,7 @@
 
         function deleteRegister(){
             $index = $_GET['index'];
+            if($index == 'concept') $index = 0;
             $this->wallet->deleteRegister($index);
             header("Location: index.php");
         }
