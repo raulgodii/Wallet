@@ -1,20 +1,21 @@
 <?php
     $sum = 0;
-    foreach($registers as $tr){
-        echo "<tr>";
-            foreach($tr as $i=>$td){
-                echo "<td>".$td."</td>";
-                if($i=="amount"){
-                    $sum += $td;
-                }
-            }
+    if(!empty($registers)){
+        foreach ($registers["register"] as $index => $register) {
+            echo '<tr>';
+            echo '<td>' . $register['concept'] . '</td>';
+            echo '<td>' . $register['date'] . '</td>';
+            echo '<td>' . $register['amount'] . '</td>';
             echo "<td>"."
-            <button>Editar
-                <span></span></button>
-            <button>Borrar
-                <span></span>
-            </button>".
-                "</td>";
-        echo "</tr>";
+                <a href=\"\">
+                <button>Editar
+                    <span></span></button></a>
+                <a href=\"index.php?controller=Wallet&action=deleteRegister&index=$index\">
+                <button>Borrar
+                    <span></span>
+                </button></a>".
+                    "</td>";
+            echo '</tr>';
+        }
     }
 ?>

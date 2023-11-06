@@ -1,18 +1,13 @@
 <?xml version="1.0"?>
 <wallet>
-  <register0>
-    <concept>fdds</concept>
-    <date>45</date>
-    <amount>45.5</amount>
-  </register0>
-  <register1>
-    <concept>fdds</concept>
-    <date>45</date>
-    <amount>45</amount>
-  </register1>
-  <register2>
-    <concept>fdds</concept>
-    <date>45</date>
-    <amount>45</amount>
-  </register2>
+  <register>
+    <concept>Concept 1</concept>
+    <date>Date 1</date>
+    <amount>1</amount>
+  </register>
+  <register>
+    <concept>Concept 1</concept>
+    <date>Date 1</date>
+    <amount>1</amount>
+  </register>
 </wallet>
