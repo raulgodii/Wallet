@@ -80,5 +80,29 @@
             $xml->asXML(self::xmlFilePath);
             
         }
+
+        public function editRegister($index, $concept, $date, $amount) {
+            // Cargar el contenido XML en un objeto SimpleXMLElement
+            $xml = simplexml_load_file(self::xmlFilePath);
+            // Inicializar un contador para llevar el seguimiento del índice actual
+            $currentIndex = 0;
+
+            // Iterar sobre los elementos del XML
+            foreach ($xml->register as $register) {
+                // Verificar si el índice actual coincide con el índice que deseas eliminar
+                if ($currentIndex == $index) {
+                    // Utilizar unset() para eliminar el nodo actual del XML
+                    $register[0]->concept = $concept;
+                    $register[0]->date = $date;
+                    $register[0]->amount = $amount;
+                    break; // Salir del bucle después de eliminar el elemento
+                }
+                // Incrementar el contador del índice actual
+                $currentIndex++;
+            }
+
+            // Guardar los cambios en el archivo XML
+            $xml->asXML(self::xmlFilePath);
+        }
     }
 ?>

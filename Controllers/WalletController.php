@@ -31,5 +31,20 @@
             $this->wallet->deleteRegister($index);
             header("Location: index.php");
         }
+
+        function editRegister(){
+            $index = $_GET['index'];
+            $this->pages->render("main/main", ['registers' => $this->wallet->getRegisters(), 'indexInput' => [$index]]);
+        }
+
+        function editNewRegister(){
+            $input1Value = $_POST['input1'];
+            $input2Value = $_POST['input2'];
+            $input3Value = $_POST['input3'];
+            $index = $_GET['index'];
+            if($index == 'concept') $index = 0;
+            $this->wallet->editRegister($index, $input1Value, $input2Value, $input3Value);
+            header("Location: index.php");
+        }
     }
 ?>

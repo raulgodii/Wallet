@@ -1,13 +1,23 @@
 <?xml version="1.0"?>
 <wallet>
   <register>
-    <concept>fds</concept>
-    <date>sdf</date>
-    <amount>df</amount>
-  </register>
-  <register>
     <concept>d</concept>
     <date>d</date>
     <amount>d</amount>
+  </register>
+  <register>
+    <concept>a</concept>
+    <date>a</date>
+    <amount>a</amount>
+  </register>
+  <register>
+    <concept>b</concept>
+    <date>b</date>
+    <amount>b</amount>
+  </register>
+  <register>
+    <concept>v</concept>
+    <date>v</date>
+    <amount>v</amount>
   </register>
 </wallet>
