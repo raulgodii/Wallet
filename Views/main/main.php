@@ -1,21 +1,13 @@
 <?php
-
-// <form action="index.php?controller=Wallet&action=addRegister" method="post">
-// <td><input class="inputMain" type="text" name="input1"></td>
-// <td><input class="inputMain" type="text" name="input2"></td>
-// <td><input class="inputMain" type="text" name="input3"></td>
-// <td><button type="submit" class="addRegister">Add Register<span></span></button></td>
-// </form>
-
     if(!empty($registers)){
         foreach ($registers["register"] as $index => $register) {
             if(is_array($register)){
                 if(isset($indexInput) && ($index == $indexInput[0])){
                     echo '<tr>';
                     echo '<form action="index.php?controller=Wallet&action=editNewRegister&index='.$indexInput[0].'" method="post">';
-                    echo '<td>' . '<input type="text" class="edit" name="input1" value=' . $register['concept'] . '>' . '</td>';
-                    echo '<td>' . '<input type="text" class="edit" name="input2" value=' . $register['date'] . '>' . '</td>';
-                    echo '<td>' . '<input type="text" class="edit" name="input3" value=' . $register['amount'] . '>' . '</td>';
+                    echo '<td>' . '<input type="text" style="border: 1px solid black" name="input1" value=' . $register['concept'] . '>' . '</td>';
+                    echo '<td>' . '<input type="text" style="border: 1px solid black" name="input2" value=' . $register['date'] . '>' . '</td>';
+                    echo '<td>' . '<input type="text" style="border: 1px solid black" name="input3" value=' . $register['amount'] . '>' . '</td>';
                     echo "<td>"."
                         <button>Confirm
                             <span></span>
@@ -43,9 +35,9 @@
                 if(isset($indexInput) && ($index == $indexInput[0])){
                     echo '<tr>';
                     echo '<form action="index.php?controller=Wallet&action=editNewRegister&index='.$indexInput[0].'"" method="post">';
-                    echo '<td>' . '<input type="text" class="edit" name="input1" value=' . $registers['register']['concept'] . '>' . '</td>';
-                    echo '<td>' . '<input type="text" class="edit" name="input2" value=' . $registers['register']['date'] . '>' . '</td>';
-                    echo '<td>' . '<input type="text" class="edit" name="input3" value=' . $registers['register']['amount'] . '>' . '</td>';
+                    echo '<td>' . '<input type="text" style="border: 1px solid black" name="input1" value=' . $registers['register']['concept'] . '>' . '</td>';
+                    echo '<td>' . '<input type="text" style="border: 1px solid black" name="input2" value=' . $registers['register']['date'] . '>' . '</td>';
+                    echo '<td>' . '<input type="text" style="border: 1px solid black" name="input3" value=' . $registers['register']['amount'] . '>' . '</td>';
                     echo "<td>"."
                         <button>Confirm
                             <span></span>
