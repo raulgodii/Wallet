@@ -20,21 +20,20 @@
                     echo '<td>' . $register['concept'] . '</td>';
                     echo '<td>' . $register['date'] . '</td>';
                     echo '<td>' . $register['amount'] . '</td>';
-                    echo "<td>"."
-                        <a href=\"index.php?controller=Wallet&action=editRegister&index=$index\">
-                        <button>Edit
-                            <span></span></button></a>
-                        <a href=\"index.php?controller=Wallet&action=deleteRegister&index=$index\">
-                        <button>Delete
-                            <span></span>
-                        </button>".
-                            "</td>";
+                    echo "<td><a href=\"index.php?controller=Wallet&action=editRegister&index=$index\">";
+                    echo "<button>Edit";
+                    echo "<span></span>";
+                    echo "</button></a>";
+                    echo "<a href=\"index.php?controller=Wallet&action=deleteRegister&index=$index\">";
+                    echo "<button>Delete";
+                    echo "<span></span>";
+                    echo "</button></a></td>";
                     echo '</tr>';
                 }
             }else{
                 if(isset($indexInput) && ($index == $indexInput[0])){
                     echo '<tr>';
-                    echo '<form action="index.php?controller=Wallet&action=editNewRegister&index='.$indexInput[0].'"" method="post">';
+                    echo '<form action="index.php?controller=Wallet&action=editNewRegister&index='.$indexInput[0].'" method="post">';
                     echo '<td>' . '<input type="text" style="border: 1px solid black" name="input1" value=' . $registers['register']['concept'] . '>' . '</td>';
                     echo '<td>' . '<input type="text" style="border: 1px solid black" name="input2" value=' . $registers['register']['date'] . '>' . '</td>';
                     echo '<td>' . '<input type="text" style="border: 1px solid black" name="input3" value=' . $registers['register']['amount'] . '>' . '</td>';

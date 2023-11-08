@@ -6,14 +6,11 @@
     <title>Virtual Wallet</title>
 </head>
 <body>
-    
-    
     <?php
         require_once 'autoload.php';
         require_once 'config/config.php';
         use Controllers\FrontController;
         FrontController::main();
     ?>
-    
 </body>
 </html>

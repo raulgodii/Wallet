@@ -48,6 +48,10 @@ button {
     font-weight: 500;
 }
 
+a{
+    margin: 3px;
+}
+
 button span {
     position: absolute;
     left: 0;
