@@ -35,35 +35,6 @@
             }
         }
     }
-
-    function validarConcepto($concepto) {
-        // Validar que el concepto solo contenga letras y espacios
-        if (preg_match("/^[a-zA-Z ]+$/", $concepto)) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    function validarFecha($fecha) {
-        // Validar el formato de fecha (YYYY-MM-DD)
-        if (preg_match("/^(\d{2})\/(\d{2})\/(\d{4})$/", $fecha, $matches)) {
-            // Verificar si la fecha es válida
-            if (checkdate($matches[2], $matches[1], $matches[3])) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    function validarCantidad($cantidad) {
-        // Validar que la cantidad sea un número flotante
-        if (is_numeric($cantidad)) {
-            return true;
-        } else {
-            return false;
-        }
-    }
 ?>
 <form action="index.php" method="post">
     <tr>

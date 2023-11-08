@@ -38,9 +38,9 @@
         }
 
         function editNewRegister(){
-            $input1Value = $_POST['input1'];
-            $input2Value = $_POST['input2'];
-            $input3Value = $_POST['input3'];
+            $input1Value = $_GET['input1'];
+            $input2Value = $_GET['input2'];
+            $input3Value = $_GET['input3'];
             $index = $_GET['index'];
             if($index == 'concept') $index = 0;
             $this->wallet->editRegister($index, $input1Value, $input2Value, $input3Value);

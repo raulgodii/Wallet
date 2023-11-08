@@ -147,6 +147,11 @@
                // Convertir SimpleXMLElement a un array para facilitar la manipulación
                 $data = json_decode(json_encode($xml), true);
 
+
+                foreach ($data['register'] as $register) {
+                    if(!is_array($register)) return;
+                }
+
                 // Función de comparación para ordenar por el elemento <concept>
                 $compareConcepts = function($a, $b) {
                     return strcmp($a['concept'], $b['concept']);
@@ -174,6 +179,10 @@
 
                 // Convertir SimpleXMLElement a un array para facilitar la manipulación
                 $data = json_decode(json_encode($xml), true);
+
+                foreach ($data['register'] as $register) {
+                    if(!is_array($register)) return;
+                }
 
                 // Función de comparación para ordenar por el elemento <amount>
                 $compareAmounts = function($a, $b) {
@@ -203,6 +212,10 @@
             // Convertir SimpleXMLElement a un array para facilitar la manipulación
             $data = json_decode(json_encode($xml), true);
         
+            foreach ($data['register'] as $register) {
+                if(!is_array($register)) return;
+            }
+
             // Función de comparación para ordenar por el elemento <date>
             $compareDates = function($a, $b) {
                 $dateA = strtotime(str_replace('/', '-', $a['date']));
