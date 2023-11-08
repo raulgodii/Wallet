@@ -1,28 +1,33 @@
 <?xml version="1.0"?>
 <wallet>
   <register>
-    <concept>d</concept>
-    <date>d</date>
-    <amount>d</amount>
-  </register>
-  <register>
-    <concept>a</concept>
-    <date>a</date>
-    <amount>a</amount>
+    <concept>AA</concept>
+    <date>12/12/2020</date>
+    <amount>222</amount>
   </register>
   <register>
     <concept>b</concept>
-    <date>b</date>
-    <amount>b</amount>
+    <date>12/12/2020</date>
+    <amount>3233</amount>
   </register>
   <register>
-    <concept>v</concept>
-    <date>v</date>
-    <amount>v</amount>
+    <concept>c</concept>
+    <date>12/12/1000</date>
+    <amount>44</amount>
   </register>
   <register>
     <concept>d</concept>
-    <date>d</date>
-    <amount>d</amount>
+    <date>12/12/1000</date>
+    <amount>3</amount>
+  </register>
+  <register>
+    <concept>f</concept>
+    <date>12/12/1000</date>
+    <amount>5</amount>
+  </register>
+  <register>
+    <concept>fdf</concept>
+    <date>12/12/1000</date>
+    <amount>6</amount>
   </register>
 </wallet>

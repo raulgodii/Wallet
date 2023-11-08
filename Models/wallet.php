@@ -137,5 +137,63 @@
             // Devolver el resultado y salir del bucle
             return $result;
         }
+
+                    // Iterar sobre los elementos del XML
+
+        public function orderByConcept(){
+            // Cargar el contenido XML en un objeto SimpleXMLElement
+            $xml = simplexml_load_file(self::xmlFilePath);
+
+               // Convertir SimpleXMLElement a un array para facilitar la manipulación
+                $data = json_decode(json_encode($xml), true);
+
+                // Función de comparación para ordenar por el elemento <concept>
+                $compareConcepts = function($a, $b) {
+                    return strcmp($a['concept'], $b['concept']);
+                };
+
+                // Ordenar el array de registros por el elemento <concept>
+                usort($data['register'], $compareConcepts);
+
+                // Crear un nuevo objeto SimpleXMLElement con los registros ordenados
+                $sortedXml = new SimpleXMLElement('<wallet></wallet>');
+                foreach ($data['register'] as $register) {
+                    $node = $sortedXml->addChild('register');
+                    $node->addChild('concept', $register['concept']);
+                    $node->addChild('date', $register['date']);
+                    $node->addChild('amount', $register['amount']);
+                }
+
+                // Guardar el XML ordenado en un archivo o hacer lo que desees con él
+                $sortedXml->asXML(self::xmlFilePath);
+        }
+
+        public function orderByAmount(){
+                // Cargar el contenido XML en un objeto SimpleXMLElement
+                $xml = simplexml_load_file(self::xmlFilePath);
+
+                // Convertir SimpleXMLElement a un array para facilitar la manipulación
+                $data = json_decode(json_encode($xml), true);
+
+                // Función de comparación para ordenar por el elemento <amount>
+                $compareAmounts = function($a, $b) {
+                    return floatval($a['amount']) - floatval($b['amount']);
+                };
+
+                // Ordenar el array de registros por el elemento <amount>
+                usort($data['register'], $compareAmounts);
+
+                // Crear un nuevo objeto SimpleXMLElement con los registros ordenados
+                $sortedXml = new SimpleXMLElement('<wallet></wallet>');
+                foreach ($data['register'] as $register) {
+                    $node = $sortedXml->addChild('register');
+                    $node->addChild('concept', $register['concept']);
+                    $node->addChild('date', $register['date']);
+                    $node->addChild('amount', $register['amount']);
+                }
+
+                // Guardar el XML ordenado por cantidad en un archivo o hacer lo que desees con él
+                $sortedXml->asXML(self::xmlFilePath);
+        }
     }
 ?>

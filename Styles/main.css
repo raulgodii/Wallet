@@ -63,7 +63,7 @@ button span::before {
     content: "";
     display: block;
     position: absolute;
-    width: 8%;
+    width: 10%;
     height: 1000%;
     background: var(--lightgray);
     top: 50%;
