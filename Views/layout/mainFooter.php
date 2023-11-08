@@ -33,36 +33,39 @@
 
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 // Sanitizar los datos de entrada
-                $input1 = filter_var($_POST["input1"], FILTER_SANITIZE_SPECIAL_CHARS);
-                $input2 = filter_var($_POST["input2"], FILTER_SANITIZE_SPECIAL_CHARS);
-                $input3 = filter_var($_POST["input3"], FILTER_SANITIZE_SPECIAL_CHARS);
-            
-                // Validación de los campos (por ejemplo, asegurándose de que no estén vacíos)
-                $errors = [];
-            
-                if (empty($input1)) {
-                    $errors[] = "<b>Concept</b> is obligatory";
-                } else if(!validarConcepto($input1)) {
-                    $errors[] = "<b>Concept</b> is not valid";
-                }
-            
-                if (empty($input2)) {
-                    $errors[] = "<b>Date</b> is obligatory";
-                } else if(!validarFecha($input2)) {
-                    $errors[] = "<b>Date</b> is not valid (must be dd/mm/yyyy)";
-                }
-            
-                if (empty($input3)) {
-                    $errors[] = "<b>Amount</b> is obligatory";
-                }else if(!validarCantidad($input3)) {
-                    $errors[] = "<b>Amount</b> is not valid";
-                }
-            
-                // Si no hay errores, se procede
-                if (empty($errors)) {
-                    // Luego, redirige al usuario al controlador
-                    header("Location: index.php?controller=Wallet&action=addRegister&input1=$input1&input2=$input2&input3=$input3");
+                if(isset($_POST["input1"]) && isset($_POST["input2"]) && isset($_POST["input3"])){
+                        $input1 = filter_var($_POST["input1"], FILTER_SANITIZE_SPECIAL_CHARS);
+                        $input2 = filter_var($_POST["input2"], FILTER_SANITIZE_SPECIAL_CHARS);
+                        $input3 = filter_var($_POST["input3"], FILTER_SANITIZE_SPECIAL_CHARS);
+                    
 
+                    // Validación de los campos (por ejemplo, asegurándose de que no estén vacíos)
+                    $errors = [];
+                
+                    if (empty($input1)) {
+                        $errors[] = "<b>Concept</b> is obligatory";
+                    } else if(!validarConcepto($input1)) {
+                        $errors[] = "<b>Concept</b> is not valid";
+                    }
+                
+                    if (empty($input2)) {
+                        $errors[] = "<b>Date</b> is obligatory";
+                    } else if(!validarFecha($input2)) {
+                        $errors[] = "<b>Date</b> is not valid (must be dd/mm/yyyy)";
+                    }
+                
+                    if (empty($input3)) {
+                        $errors[] = "<b>Amount</b> is obligatory";
+                    }else if(!validarCantidad($input3)) {
+                        $errors[] = "<b>Amount</b> is not valid";
+                    }
+                
+                    // Si no hay errores, se procede
+                    if (empty($errors)) {
+                        // Luego, redirige al usuario al controlador
+                        header("Location: index.php?controller=Wallet&action=addRegister&input1=$input1&input2=$input2&input3=$input3");
+
+                    }
                 }
             }
         

@@ -16,18 +16,13 @@
     <amount>44</amount>
   </register>
   <register>
-    <concept>d</concept>
-    <date>12/12/1000</date>
-    <amount>3</amount>
-  </register>
-  <register>
     <concept>f</concept>
     <date>12/12/1000</date>
     <amount>5</amount>
   </register>
   <register>
-    <concept>fdf</concept>
-    <date>12/12/1000</date>
-    <amount>6</amount>
+    <concept>aa</concept>
+    <date>12/12/2020</date>
+    <amount>555</amount>
   </register>
 </wallet>
