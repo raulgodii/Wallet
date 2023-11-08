@@ -195,5 +195,35 @@
                 // Guardar el XML ordenado por cantidad en un archivo o hacer lo que desees con él
                 $sortedXml->asXML(self::xmlFilePath);
         }
+
+        public function orderByDate(){
+            // Cargar el contenido XML en un objeto SimpleXMLElement
+            $xml = simplexml_load_file(self::xmlFilePath);
+        
+            // Convertir SimpleXMLElement a un array para facilitar la manipulación
+            $data = json_decode(json_encode($xml), true);
+        
+            // Función de comparación para ordenar por el elemento <date>
+            $compareDates = function($a, $b) {
+                $dateA = strtotime(str_replace('/', '-', $a['date']));
+                $dateB = strtotime(str_replace('/', '-', $b['date']));
+                return $dateA - $dateB;
+            };
+        
+            // Ordenar el array de registros por el elemento <date>
+            usort($data['register'], $compareDates);
+        
+            // Crear un nuevo objeto SimpleXMLElement con los registros ordenados por fecha
+            $sortedXml = new SimpleXMLElement('<wallet></wallet>');
+            foreach ($data['register'] as $register) {
+                $node = $sortedXml->addChild('register');
+                $node->addChild('concept', $register['concept']);
+                $node->addChild('date', $register['date']);
+                $node->addChild('amount', $register['amount']);
+            }
+        
+            // Guardar el XML ordenado por fecha en un archivo o hacer lo que desees con él
+            $sortedXml->asXML(self::xmlFilePath);
+        }
     }
 ?>

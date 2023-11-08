@@ -1,35 +1,7 @@
-    </tbody>
+
         <tr>
             
         <?php
-            function validarConcepto($concepto) {
-                // Validar que el concepto solo contenga letras y espacios
-                if (preg_match("/^[a-zA-Z ]+$/", $concepto)) {
-                    return true;
-                } else {
-                    return false;
-                }
-            }
-
-            function validarFecha($fecha) {
-                // Validar el formato de fecha (YYYY-MM-DD)
-                if (preg_match("/^(\d{2})\/(\d{2})\/(\d{4})$/", $fecha, $matches)) {
-                    // Verificar si la fecha es válida
-                    if (checkdate($matches[2], $matches[1], $matches[3])) {
-                        return true;
-                    }
-                }
-                return false;
-            }
-
-            function validarCantidad($cantidad) {
-                // Validar que la cantidad sea un número flotante
-                if (is_numeric($cantidad)) {
-                    return true;
-                } else {
-                    return false;
-                }
-            }
 
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 // Sanitizar los datos de entrada
@@ -64,8 +36,36 @@
                     if (empty($errors)) {
                         // Luego, redirige al usuario al controlador
                         header("Location: index.php?controller=Wallet&action=addRegister&input1=$input1&input2=$input2&input3=$input3");
-
                     }
+                }
+            }
+
+            function validarConcepto($concepto) {
+                // Validar que el concepto solo contenga letras y espacios
+                if (preg_match("/^[a-zA-Z ]+$/", $concepto)) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+
+            function validarFecha($fecha) {
+                // Validar el formato de fecha (YYYY-MM-DD)
+                if (preg_match("/^(\d{2})\/(\d{2})\/(\d{4})$/", $fecha, $matches)) {
+                    // Verificar si la fecha es válida
+                    if (checkdate($matches[2], $matches[1], $matches[3])) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+
+            function validarCantidad($cantidad) {
+                // Validar que la cantidad sea un número flotante
+                if (is_numeric($cantidad)) {
+                    return true;
+                } else {
+                    return false;
                 }
             }
         
@@ -74,12 +74,8 @@
             <td><input class="inputMain" type="text" name="input1" <?php if(isset($input1)) echo "value=\"$input1\""?>/> </td>
             <td><input class="inputMain" type="text" name="input2" <?php if(isset($input2)) echo "value=\"$input2\""?>/> </td>
             <td><input class="inputMain" type="text" name="input3" <?php if(isset($input3)) echo "value=\"$input3\""?>/> </td>
-            <td><button type="submit" class="addRegister">Add Register<span></span></button></td>
+            <td><button class="addRegister">Add Register<span></span></button></td>
         </form>
-            <!-- <td><input class="inputMain" type="text"></td>
-            <td><input class="inputMain" type="text"></td>
-            <td><input class="inputMain" type="text"></td>
-            <td><a href="index.php?controller=Wallet&action=addRegister"><button class="addRegister">Add Register<span></span></button></a></td> -->
         </tr>
 </table>
     <?php

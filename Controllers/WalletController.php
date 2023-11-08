@@ -21,7 +21,7 @@
             $input1Value = $_GET['input1'];
             $input2Value = $_GET['input2'];
             $input3Value = $_GET['input3'];
-            $this->wallet->addRegister($input1Value, $input2Value, $input3Value);
+            $this->wallet->addRegister($input1Value, $input2Value, $input3Value);  
             header("Location: index.php");
         }
 
@@ -59,7 +59,12 @@
         }
 
         function orderByAmount(){
-            $this->wallet->orderByConcept();
+            $this->wallet->orderByAmount();
+            header("Location: index.php");
+        }
+
+        function orderByDate(){
+            $this->wallet->orderByDate();
             header("Location: index.php");
         }
     }
