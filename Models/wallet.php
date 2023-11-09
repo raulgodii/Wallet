@@ -147,7 +147,7 @@
                // Convertir SimpleXMLElement a un array para facilitar la manipulación
                 $data = json_decode(json_encode($xml), true);
 
-
+                if(count($data) == 0) return;
                 foreach ($data['register'] as $register) {
                     if(!is_array($register)) return;
                 }
@@ -180,6 +180,7 @@
                 // Convertir SimpleXMLElement a un array para facilitar la manipulación
                 $data = json_decode(json_encode($xml), true);
 
+                if(count($data) == 0) return;
                 foreach ($data['register'] as $register) {
                     if(!is_array($register)) return;
                 }
@@ -212,6 +213,7 @@
             // Convertir SimpleXMLElement a un array para facilitar la manipulación
             $data = json_decode(json_encode($xml), true);
         
+            if(count($data) == 0) return;
             foreach ($data['register'] as $register) {
                 if(!is_array($register)) return;
             }
