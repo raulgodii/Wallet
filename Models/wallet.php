@@ -4,12 +4,14 @@
     use SimpleXMLElement;
     use DOMDocument;
 
+    // La clase Wallet representa un monedero virtual y gestiona registros en un archivo XML.
     class Wallet{
         private array $register;
         
         // Ruta del archivo XML
         const xmlFilePath = './Files/wallet.xml';
 
+        // Constructor de la clase
         public function __construct(){
             // Verificar si el archivo XML existe
             if (file_exists(self::xmlFilePath)) {
@@ -43,6 +45,7 @@
             return $this->register;
         }
 
+        // Agregar un nuevo registro al monedero
         public function addRegister($concept, $date, $amount) {
             // Cargar el archivo XML
             $xml = simplexml_load_file(self::xmlFilePath);
@@ -57,6 +60,7 @@
             $xml->asXML(self::xmlFilePath);
         }
 
+        // Eliminar un registro del monedero por índice
         public function deleteRegister($index) {
             // Cargar el contenido XML en un objeto SimpleXMLElement
             $xml = simplexml_load_file(self::xmlFilePath);
@@ -78,9 +82,9 @@
 
             // Guardar los cambios en el archivo XML
             $xml->asXML(self::xmlFilePath);
-            
         }
 
+        // Editar un registro del monedero por índice
         public function editRegister($index, $concept, $date, $amount) {
             // Cargar el contenido XML en un objeto SimpleXMLElement
             $xml = simplexml_load_file(self::xmlFilePath);
@@ -104,6 +108,7 @@
             $xml->asXML(self::xmlFilePath);
         }
 
+        // Buscar registros por concepto
         public function searchConcept($concept){
             // Cargar el contenido XML en un objeto SimpleXMLElement
             $xml = simplexml_load_file(self::xmlFilePath);
@@ -138,8 +143,7 @@
             return $result;
         }
 
-                    // Iterar sobre los elementos del XML
-
+        // Ordenar registros por concepto
         public function orderByConcept(){
             // Cargar el contenido XML en un objeto SimpleXMLElement
             $xml = simplexml_load_file(self::xmlFilePath);
@@ -173,6 +177,7 @@
                 $sortedXml->asXML(self::xmlFilePath);
         }
 
+        // Ordenar registros por cantidad
         public function orderByAmount(){
                 // Cargar el contenido XML en un objeto SimpleXMLElement
                 $xml = simplexml_load_file(self::xmlFilePath);
@@ -181,7 +186,8 @@
                 $data = json_decode(json_encode($xml), true);
 
                 if(count($data) == 0) return;
-                foreach ($data['register'] as $register) {
+                foreach ($data['register'] as $register
+                ) {
                     if(!is_array($register)) return;
                 }
 
@@ -206,6 +212,7 @@
                 $sortedXml->asXML(self::xmlFilePath);
         }
 
+        // Ordenar registros por fecha
         public function orderByDate(){
             // Cargar el contenido XML en un objeto SimpleXMLElement
             $xml = simplexml_load_file(self::xmlFilePath);
