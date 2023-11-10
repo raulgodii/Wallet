@@ -7,9 +7,14 @@
 </head>
 <body>
     <?php
+        // Incluir el archivo de autocarga de clases y la configuración
         require_once 'autoload.php';
         require_once 'config/config.php';
+
+        // Utilizar el espacio de nombres Controllers y la clase FrontController
         use Controllers\FrontController;
+
+        // Llamar al método estático main de la clase FrontController
         FrontController::main();
     ?>
 </body>
